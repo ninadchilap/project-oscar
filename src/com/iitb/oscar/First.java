@@ -13,7 +13,7 @@ import android.view.View.OnTouchListener;
 import android.widget.ImageButton;
 import android.widget.TextView;
 
-public class First extends Activity implements OnClickListener {
+public class First extends Activity  {
 	ImageButton next;
 	TextView link;
 	String htmllink;
@@ -62,11 +62,8 @@ public class First extends Activity implements OnClickListener {
 		
 	}
 
-
 	
-	public void onClick(DialogInterface dialog, int which) {
-		// TODO Auto-generated method stub
-		
-	}
+	
+	
 
 }

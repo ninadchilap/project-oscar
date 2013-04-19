@@ -21,9 +21,7 @@
         android:layout_alignParentRight="true"
         android:layout_marginRight="46dp"
         android:src="@drawable/nxt"
-           android:background="@null"
-        
-        
+        android:background="@null"
          />
 
     <TextView

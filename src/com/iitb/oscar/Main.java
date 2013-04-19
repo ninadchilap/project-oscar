@@ -8,7 +8,11 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
+import android.webkit.WebView;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
 import android.widget.ArrayAdapter;
@@ -93,9 +97,10 @@ public ArrayList<String> getContent(String DirectoryPath)
     if (files.length == 0)
         return null;
     else {
-        for (int i=0; i<files.length; i++){            
+        for (int i=0; i<files.length; i++){
+        	
             MyFiles.add(files[i].getName());
-          
+        	
         }
     }
             return MyFiles;
@@ -133,7 +138,49 @@ public void displayList(ArrayList<String> Contents)
     }});
         }
                   }
+
+
+@Override
+public boolean onCreateOptionsMenu(Menu menu) {
+	// TODO Auto-generated method stub
+	
+	MenuInflater menuInflater = getMenuInflater();
+    menuInflater.inflate(R.layout.menu, menu);
+    return true;
+}
         
+public boolean onOptionsItemSelected(MenuItem item)
+{
+
+    switch (item.getItemId())
+    {
+    case R.id.menu_Credits:
         
+    	AlertDialog.Builder builder = new AlertDialog.Builder(this);
+    	//builder.setIcon(R.drawable.icon);
+    	builder.setTitle("Credits");
+    	builder.setMessage("Application developed by: \n - Arun Nair \n - Ninad Chilap \n - Nitin Ayer ")
+    	
+    	       .setCancelable(true)
+    	       .setPositiveButton("OK", new DialogInterface.OnClickListener() {
+    	           public void onClick(DialogInterface dialog, int id) {
+    	        	
+    	           }
+    	       });
+    	AlertDialog alert = builder.create();   
+    	alert.show();
+        return true;
+
+    case R.id.menu_Instructions:
+    	 Intent intent;
+         intent = new Intent(Main.this, Instruction.class);                        
+         
+         startActivity(intent);           
+
+
+    default:
+        return super.onOptionsItemSelected(item);
+    }
+}           
     
 }
